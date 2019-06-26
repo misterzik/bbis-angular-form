@@ -1,0 +1,64 @@
+/* Navigation */
+
+nav {
+    display: block;
+    background: #fff;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    margin-bottom: 5rem;
+    height: 60px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
+}
+
+header {
+    margin-bottom: 4rem;
+}
+
+.topHeader {
+    font-family: "Circular-Bold", serif;
+    font-size: 32px;
+    margin-bottom: 42px;
+    margin-top: 8rem;
+}
+
+.logo {
+    margin-left: 38.45px;
+    width: 153px;
+    margin-top: 13px;
+    background: red;
+    padding: 8px;
+    border-radius: 4px;
+    float: left;
+    color: #fff;
+}
+
+.userAuth {
+    float: right;
+    padding-right: 1rem;
+    padding-top: 19px;
+    font-family: "Circular-Bold";
+    font-size: 14px;
+    color: rgb(236, 28, 36);
+}
+
+.userAuth a:link,
+.userAuth a:active,
+.userAuth a:visited {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.68);
+}
+
+.userAuth a:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.68);
+    border-bottom: 4px solid rgba(237, 28, 36, 0.74);
+}
+
+.userIcon {
+    width: 21px;
+    transition: all 0.2s;
+    fill: #3b302c;
+    float: right;
+    margin-top: -2px;
+}

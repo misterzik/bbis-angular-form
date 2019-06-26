@@ -1,0 +1,709 @@
+/* Basic Structure */
+/* line 3, ../scss/__base.scss */
+*:focus {
+  outline: none;
+}
+
+/* line 7, ../scss/__base.scss */
+html {
+  font-family: "Circular-Bold", serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+/* line 14, ../scss/__base.scss */
+body {
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Circular-Medium", sans-serif;
+  font-size: 1em;
+  line-height: 1.35em;
+  font-weight: normal;
+  background-color: #F5F2EC;
+  height: 100%;
+  counter-reset: section;
+}
+
+/* line 28, ../scss/__base.scss */
+hr {
+  border-top: 1px dotted #f9f9f9;
+  width: 96%;
+  text-align: center;
+  margin-left: 0;
+}
+
+/* line 35, ../scss/__base.scss */
+button {
+  background-color: #0e62ff;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Content */
+/* line 50, ../scss/__base.scss */
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  width: 48.8%;
+  margin-top: 3%;
+}
+
+/* line 59, ../scss/__base.scss */
+.content {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+/* line 65, ../scss/__base.scss */
+.line-separator {
+  height: 24px;
+  background: #EC1C24;
+  width: 6px;
+  position: absolute;
+  margin-left: 0rem;
+}
+
+/* line 73, ../scss/__base.scss */
+.line-separator2 {
+  height: 24px;
+  background: #EC1C24;
+  width: 6px;
+  position: absolute;
+  margin-left: 0rem;
+}
+
+/* line 81, ../scss/__base.scss */
+.line-separator3 {
+  height: 6px;
+  background: #EC1C24;
+  width: 35px;
+  position: absolute;
+  margin-top: 35px;
+  margin-left: 1px;
+}
+
+/* line 90, ../scss/__base.scss */
+.titleHeaderContent {
+  color: #2196F3;
+  margin-left: 18px;
+  margin-top: 5px;
+  font-family: 'Circular-Bold';
+  font-size: 14px;
+}
+
+/* line 98, ../scss/__base.scss */
+.titleHeaderContent2 {
+  color: #2196F3;
+  margin-left: 18px;
+  margin-top: 5px;
+  font-family: 'Circular-Bold';
+  font-size: 14px;
+}
+
+/* line 106, ../scss/__base.scss */
+.titleContent {
+  margin-left: 0.6rem;
+  font-family: 'Circular-Bold', italic;
+  font-style: oblique;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* line 114, ../scss/__base.scss */
+li.ng-scope {
+  padding-left: 5rem;
+  padding-top: 2rem;
+}
+
+/* line 119, ../scss/__base.scss */
+.giftDesignations.ng-scope {
+  padding-left: 5rem;
+  padding-top: 2rem;
+}
+
+/* line 124, ../scss/__base.scss */
+.giftDesignations2.ng-scope {
+  padding-left: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 2em !important;
+}
+
+/* line 131, ../scss/__base.scss */
+.btnOrder {
+  background-color: #49c4ff;
+  color: #fff;
+  font-family: "Circular-Bold";
+  font-size: 15px;
+  padding: 6px;
+}
+
+/* Seth CSS Included */
+/* Seth CSS */
+/* line 145, ../scss/__base.scss */
+#app-online-giving input,
+#app-online-giving select,
+#app-online-giving div {
+  display: block;
+  margin: 0 0 13px 0;
+}
+
+/* line 152, ../scss/__base.scss */
+#app-online-giving input[type="button"] {
+  width: 150px;
+}
+
+/* line 156, ../scss/__base.scss */
+#app-online-giving input[type="checkbox"] {
+  width: 20px;
+  vertical-align: sub;
+}
+
+/* line 161, ../scss/__base.scss */
+#app-online-giving input {
+  display: inline-block;
+}
+
+/* line 165, ../scss/__base.scss */
+.money {
+  width: 50px !important;
+  display: inline !important;
+}
+
+/* line 170, ../scss/__base.scss */
+.tribute_selected {
+  color: Red;
+}
+
+/* line 174, ../scss/__base.scss */
+.designation_selected {
+  background-color: #ffc7c9;
+  padding-bottom: 2em;
+  margin-top: 1em;
+}
+
+/* line 180, ../scss/__base.scss */
+.ng-invalid.ng-touched {
+  border: solid 2px red;
+}
+
+/* line 184, ../scss/__base.scss */
+input[disabled=disabled],
+input:disabled {
+  color: #e2e2e2;
+}
+
+/* line 189, ../scss/__base.scss */
+.ng-cloak {
+  display: none !important;
+}
+
+/* line 193, ../scss/__base.scss */
+#app-online-giving .interior h2 {
+  margin: 0 !important;
+}
+
+/* line 197, ../scss/__base.scss */
+input[type="text"][disabled] {
+  color: #727272;
+}
+
+/* Navigation */
+/* line 3, ../scss/__globalNavigation.scss */
+nav {
+  display: block;
+  background: #fff;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  margin-bottom: 5rem;
+  height: 60px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 14, ../scss/__globalNavigation.scss */
+header {
+  margin-bottom: 4rem;
+}
+
+/* line 18, ../scss/__globalNavigation.scss */
+.topHeader {
+  font-family: "Circular-Bold", serif;
+  font-size: 32px;
+  margin-bottom: 42px;
+  margin-top: 8rem;
+}
+
+/* line 25, ../scss/__globalNavigation.scss */
+.logo {
+  margin-left: 38.45px;
+  width: 153px;
+  margin-top: 13px;
+  background: red;
+  padding: 8px;
+  border-radius: 4px;
+  float: left;
+  color: #fff;
+}
+
+/* line 36, ../scss/__globalNavigation.scss */
+.userAuth {
+  float: right;
+  padding-right: 1rem;
+  padding-top: 19px;
+  font-family: "Circular-Bold";
+  font-size: 14px;
+  color: #ec1c24;
+}
+
+/* line 45, ../scss/__globalNavigation.scss */
+.userAuth a:link,
+.userAuth a:active,
+.userAuth a:visited {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+/* line 52, ../scss/__globalNavigation.scss */
+.userAuth a:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.68);
+  border-bottom: 4px solid rgba(237, 28, 36, 0.74);
+}
+
+/* line 58, ../scss/__globalNavigation.scss */
+.userIcon {
+  width: 21px;
+  transition: all 0.2s;
+  fill: #3b302c;
+  float: right;
+  margin-top: -2px;
+}
+
+/* line 1, ../scss/__formModule.scss */
+.donationForm {
+  padding: 1rem;
+  padding-right: 1.5rem;
+  margin-bottom: 2rem;
+  background: #fff;
+  width: 100%;
+}
+
+/* line 9, ../scss/__formModule.scss */
+.giftContent {
+  font-family: "Circular-Book", serif;
+  font-weight: 700;
+  font-size: 14px;
+  width: 80%;
+  display: block;
+  padding-left: 22px;
+  padding-top: 11px;
+}
+
+/* line 19, ../scss/__formModule.scss */
+.progressPush {
+  margin-left: 25%;
+}
+
+/* line 23, ../scss/__formModule.scss */
+.progressFirst {
+  font-size: 10px;
+  position: absolute;
+  margin-top: -17px;
+  margin-left: 20px;
+}
+
+/* line 30, ../scss/__formModule.scss */
+.progressSecond {
+  font-size: 10px;
+  position: absolute;
+  margin-top: -17px;
+  margin-left: 8px;
+}
+
+/* line 37, ../scss/__formModule.scss */
+label .btnCoN,
+.btnCoN a:link,
+.btnCoN a:visited,
+.btnCoN a:active {
+  color: #fff;
+  border: 0 none;
+}
+
+/* line 56, ../scss/__formModule.scss */
+.btnCoNBack {
+  width: 100px;
+  background: #EC1C24;
+  color: #fff;
+  border: 0 none;
+  font-family: "MinionPro-Bold";
+  font-size: 15px;
+}
+
+/* line 72, ../scss/__formModule.scss */
+input#search {
+  margin-left: 6rem;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 0px !important;
+  border-left: 0px !important;
+  border-right: 0px !important;
+  border-radius: 0px !important;
+  border-bottom: 4px solid #afafaf !important;
+  width: 60%;
+}
+
+/* line 85, ../scss/__formModule.scss */
+select {
+  padding: 0 0 0 1px;
+  border: none;
+  background-color: #fff;
+  width: 100%;
+  white-space: normal;
+  height: 46px;
+}
+
+/* line 94, ../scss/__formModule.scss */
+option {
+  padding-top: 7px;
+  height: 22px;
+  width: 10%;
+  border: 0;
+  color: #fff;
+  font-family: "Circular-Bold";
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 9px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* line 108, ../scss/__formModule.scss */
+.secondMiscItems {
+  margin-left: 5em;
+}
+
+/* line 112, ../scss/__formModule.scss */
+.secondMiscItemsDrop {
+  padding-left: 6em;
+  padding-top: 1em;
+  width: 50%;
+}
+
+/* line 118, ../scss/__formModule.scss */
+.jointClass {
+  padding-left: 5em;
+}
+
+/* line 122, ../scss/__formModule.scss */
+.clear {
+  clear: both;
+}
+
+/* line 126, ../scss/__formModule.scss */
+#part1,
+#part2,
+#part3,
+#part4 {
+  display: block;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+
+/* Hide Parts 2 & 3 on Page Load */
+/* line 138, ../scss/__formModule.scss */
+#part2,
+#part3,
+#part4 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+/* Show Step 2 */
+/* line 149, ../scss/__formModule.scss */
+#step2:checked ~ #part2 {
+  opacity: 1;
+  height: auto;
+  display: block;
+}
+
+/* Hide Step 1 */
+/* line 158, ../scss/__formModule.scss */
+#step2:checked ~ #part1 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+/* Show Step 3 */
+/* line 167, ../scss/__formModule.scss */
+#step3:checked ~ #part3 {
+  opacity: 1;
+  height: auto;
+  display: block;
+}
+
+/* Hide Step 2 */
+/* line 176, ../scss/__formModule.scss */
+#step3:checked ~ #part2 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+/* Show Step 3 */
+/* line 185, ../scss/__formModule.scss */
+#step4:checked ~ #part4 {
+  opacity: 1;
+  height: auto;
+  display: block;
+}
+
+/* Hide Step 2 */
+/* line 194, ../scss/__formModule.scss */
+#step4:checked ~ #part3 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+/* line 200, ../scss/__formModule.scss */
+.search {
+  width: 78%;
+  margin-left: 67px;
+  padding-bottom: 6px;
+  border-bottom: 4px solid #afafaf !important;
+}
+
+/* line 207, ../scss/__formModule.scss */
+ul {
+  list-style: none;
+}
+
+/* line 211, ../scss/__formModule.scss */
+input[type=radio]:not(old) {
+  width: 2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  opacity: 0;
+}
+
+/* line 219, ../scss/__formModule.scss */
+input[type=radio]:not(old) + label {
+  display: inline-block;
+  margin-left: -2em;
+  line-height: 1.5em;
+}
+
+/* line 225, ../scss/__formModule.scss */
+input[type=radio]:not(old) + label > span {
+  display: inline-block;
+  width: 19px;
+  height: 21px;
+  margin-left: 2rem;
+  border: 3px solid #adadae;
+  border-radius: 18px;
+  background: transparent;
+  padding-top: 4px;
+  padding-left: 7px;
+  margin-right: 1rem;
+  vertical-align: bottom;
+}
+
+/* line 239, ../scss/__formModule.scss */
+input[type=radio]:not(old):first-child + label > span {
+  background: #ec1c24;
+  border: 3px solid #ec1c24;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* line 246, ../scss/__formModule.scss */
+input[type=radio]:not(old):checked + label > span {
+  background: #ec1c24;
+  border: 3px solid #ec1c24;
+}
+
+/* line 251, ../scss/__formModule.scss */
+input[type=radio]:not(old):checked + label > span:before {
+  display: block;
+  width: 2px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1em;
+  text-align: center;
+  text-shadow: 0 0 0.0714em #ffffff;
+  padding-left: 2.4px;
+  margin-top: 0px;
+  background: transparent;
+}
+
+/* line 264, ../scss/__formModule.scss */
+input[type=radio]:not(old) + label > span::before {
+  background: transparent;
+  color: #adadad;
+  display: block;
+  padding-left: 2.1px;
+  height: 18px;
+  width: 14px;
+  border-radius: 26px;
+  margin-top: -3px;
+  font-size: 15px;
+  counter-increment: section;
+  content: counter(section);
+}
+
+/* Sidebar - Manifesto */
+/* Mobile Rules */
+/* line 9, ../scss/__globalsidebar.scss */
+aside {
+  display: none;
+}
+/* line 11, ../scss/__globalsidebar.scss */
+aside.siderGift {
+  padding: 12px;
+}
+@media screen and (max-width: 600px) {
+  /* line 9, ../scss/__globalsidebar.scss */
+  aside {
+    display: none;
+  }
+}
+@media screen and (max-width: 1466px) {
+  /* line 9, ../scss/__globalsidebar.scss */
+  aside {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    right: 9.8%;
+    top: 16em;
+    float: right;
+    background: #EC1C24;
+    width: 200px;
+    min-height: 131px;
+    min-height: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 9, ../scss/__globalsidebar.scss */
+  aside {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    right: 9.8%;
+    top: 16em;
+    float: right;
+    background: #EC1C24;
+    width: 200px;
+    min-height: 131px;
+    min-height: auto;
+  }
+}
+
+/* line 43, ../scss/__globalsidebar.scss */
+.sidebar {
+  display: none !important;
+}
+@media screen and (max-width: 600px) {
+  /* line 43, ../scss/__globalsidebar.scss */
+  .sidebar {
+    display: none !important;
+    color: #fff;
+    float: right;
+    font-family: 'Circular-Bold';
+    font-style: oblique;
+    font-weight: 500;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 43, ../scss/__globalsidebar.scss */
+  .sidebar {
+    display: block !important;
+    color: #fff;
+    float: right;
+    font-family: 'Circular-Bold';
+    font-style: oblique;
+    font-weight: 500;
+    width: 100%;
+  }
+}
+
+/* line 65, ../scss/__globalsidebar.scss */
+.sidebar hr {
+  border-top: 1px solid rgba(102, 51, 51, 0.42) !important;
+  text-align: center;
+  margin-left: 0;
+  opacity: 0.2;
+}
+
+/* Fonts */
+@font-face {
+  font-family: "Circular-Mediumitalic";
+  src: url("fonts/circluarMediumItalic/lineto-circular-mediumitalic.eot");
+  src: url("fonts/circluarMediumItalic/lineto-circular-mediumitalic.eot?#iefix") format("embedded-opentype"), url("fonts/circularMediumItalic/lineto-circular-mediumItalic.woff") format("woff"), url("fonts/circluarMediumItalic/lineto-circular-mediumitalic.ttf") format("truetype"), url("fonts/circluarMediumItalic/lineto-circular-mediumitalic.svg#lineto-circular-mediumitalic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular-Medium";
+  src: url("fonts/circluarMedium/lineto-circular-medium.eot");
+  src: url("fonts/circluarMedium/lineto-circular-medium.eot?#iefix") format("embedded-opentype"), url("fonts/circluarMedium/lineto-circular-medium.woff") format("woff"), url("fonts/circluarMedium/lineto-circular-medium.ttf") format("truetype"), url("fonts/circluarMedium/lineto-circular-medium.svg#lineto-circular-medium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular-Bold";
+  src: url("fonts/circularBold/lineto-circular-bold.eot");
+  src: url("fonts/circularBold/lineto-circular-bolXd.eot?#iefix") format("embedded-opentype"), url("fonts/circularBold/lineto-circular-bold.woff") format("woff"), url("fonts/circularBold/lineto-circular-bold.ttf") format("truetype"), url("fonts/circularBold/lineto-circular-bold.svg#lineto-circular-bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular-Bolditalic";
+  src: url("fonts/circluarBoldItalic/lineto-circular-bolditalic.eot");
+  src: url("fonts/circluarBoldItalic/lineto-circular-bolditalic.eot?#iefix") format("embedded-opentype"), url("fonts/circluarBoldItalic/lineto-circular-bolditalic.woff") format("woff"), url("fonts/circluarBoldItalic/lineto-circular-bolditalic.ttf") format("truetype"), url("fonts/circluarBoldItalic/lineto-circular-bolditalic.svg#lineto-circular-bolditalic") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular-Book";
+  src: url("fonts/circularBook/lineto-circular-book.eot");
+  src: url("fonts/circularBook/lineto-circular-book.eot?#iefix") format("embedded-opentype"), url("fonts/circularBook/lineto-circular-book.woff") format("woff"), url("fonts/circularBook/lineto-circular-book.ttf") format("truetype"), url("fonts/circularBook/lineto-circular-book.svg#lineto-circular-book") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular-Bookitalic";
+  src: url("fonts/circularBookItalic/lineto-circular-bookitalic.eot");
+  src: url("fonts/circularBookItalic/lineto-circular-bookitalic.eot?#iefix") format("embedded-opentype"), url("fonts/circularBookItalic/lineto-circular-bookitalic.woff") format("woff"), url("fonts/circularBookItalic/lineto-circular-bookitalic.ttf") format("truetype"), url("fonts/circularBookItalic/lineto-circular-bookitalic.svg#lineto-circular-bookitalic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MinionPro-Bold";
+  src: local("MinionPro-Bold"), url("fonts/MinionPro/MinionPro-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "MinionPro-Medium";
+  src: local("MinionPro-Medium"), url("fonts/MinionPro/MinionPro-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "MinionPro-Regular";
+  src: local("MinionPro-Regular"), url("fonts/MinionPro/MinionPro-Regular.otf") format("opentype");
+}

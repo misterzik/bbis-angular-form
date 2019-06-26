@@ -1,0 +1,333 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+    <link href="/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            var app = angular.module('app-online-giving', ['ngMessages']);
+
+            app.constant('settings', {
+                'serviceBase': '',
+                'rootDesignationId': '',
+                'merchantAccountId': '',
+                'allowTribute': 'true',
+                'allowRecurring': 'true',
+                'BBSPReturnUri': window.location.href.split('?')[0],
+                'BBSPTemplateSitePageId': '',
+                'minimumGiftAmount': 25
+            });
+
+            app.constant('initData', {
+                "designations": [{
+                    "designationId": "b1ea4777-9a35-4b6c-9eb6-1e6d9f917369",
+                    "name": "Cancer Annual Fund",
+                    "description": "Cupcake ipsum dolor sit amet. Cake chupa chups pudding gummi bears gummies cupcake bear claw chupa chups sugar plum. Jelly icing danish bonbon topping toffee.",
+                    "promote": true,
+                    "promoteSortOrder": 1
+                }, {
+                    "designationId": "6143595d-4166-4364-805e-3bb344bb4693",
+                    "name": "Education Annual Fund",
+                    "description": "Cupcake ipsum dolor sit amet. Cake chupa chups pudding gummi bears gummies cupcake bear claw chupa chups sugar plum. Jelly icing danish bonbon topping toffee.",
+                    "promote": true,
+                    "promoteSortOrder": 2
+                }, {
+                    "designationId": "421999ac-01cd-4320-8847-d0c7a228627f",
+                    "name": "Women's Health",
+                    "description": "Cupcake ipsum dolor sit amet. Cake chupa chups pudding gummi bears gummies cupcake bear claw chupa chups sugar plum. Jelly icing danish bonbon topping toffee.",
+                    "promote": true,
+                    "promoteSortOrder": 3
+                }, {
+                    "designationId": "1f7e31d1-d89c-42f8-b5dc-c0dfc5886e6d",
+                    "name": "Parent Hood Help",
+                    "description": "Cupcake ipsum dolor sit amet. Cake chupa chups pudding gummi bears gummies cupcake bear claw chupa chups sugar plum. Jelly icing danish bonbon topping toffee.",
+                    "promote": true,
+                    "promoteSortOrder": 0
+                }],
+                "profile": {
+                    "phone": "2011234567",
+                    "emailAddress": "your_email@website.com",
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "streetAddress": "Lexington",
+                    "city": "NYC",
+                    "state": "NY",
+                    "country": "USA",
+                    "postalCode": "00007"
+                },
+                "tributes": [{
+                    "id": "428d-932a-ed07bde5012f",
+                    "name": "In celebration"
+                }, {
+                    "id": "6de6d73d-c226",
+                    "name": "In honor"
+                }, {
+                    "id": "440a-9384-483ce2b1e32e",
+                    "name": "In memory"
+                }]
+            });
+        })();
+    </script>
+    <script src="../scripts/app/app.js"></script>
+    <script src="../scripts/app/mocks/blackbaud-service-mock.js"></script>
+    <script src="../scripts/app/mocks/location-service-mock.js"></script>
+    <script src="../scripts/app/mocks/state-service-mock.js"></script>
+    <script src="../scripts/app/mocks/donation-service-mock.js"></script>
+    <script src="../scripts/app/mocks/main-controller-mock.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                YOURBRAND
+            </div>
+            <div class="userAuth">
+                Welcome, <a href="#">Nick Doe</a> &nbsp;
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <span class="line-separator3"></span>
+        <h1 class="topHeader">Give For A Cause</h1>
+
+
+        <form name="messages"></form>
+        <span id="og-missing-angular"></span>
+        <div id="app-online-giving" ng-app="app-online-giving" class="ng-cloak">
+            <div ng-controller="OnlineGivingCtrl as vm" ng-init="vm.init()">
+                <div ng-show="vm.transactionId === ''" ng-model-options="{'updateOn':'blur click change'}">
+                    <aside class="siderGift">
+                        <div class="sidebar">
+                            <h2> Gift Total</h2>
+                            <hr> <br /> Count:{{vm.donation.Gift.Designations.length}}
+                            <br /> Total: {{vm.getGiftTotal()}}
+                        </div>
+                    </aside>
+                    <div class="donationFormOutter">
+                        <form name="donationForm" novalidate>
+                            <span class="progressPush"></span>
+                            <span class="progressFirst">Gift Selections</span><input id='step1' type='radio'><label for="option"><span><span></span></span></label>
+                            <span class="progressFirst">Gift Details</span><input id='step2' type='radio'><label for="option"><span><span></span></span></label>
+                            <span class="progressSecond">Personal Information   </span><input id='step3' type='radio'><label for="option"><span><span></span></span></label>
+                            <span class="progressFirst">Confirmation</span><input id='step4' type='radio'><label for="option"><span><span></span></span></label>
+                            <fieldset id="part1" class="donationForm">
+                                <b>* You may select multiple gifts.</b>
+                                <br /><br />
+                                <span class="line-separator"></span>
+                                <h2 class="titleHeaderContent">PRIORITY GIFTS OPTIONS</h2>
+                                <ul>
+                                    <li ng-repeat="designation in vm.promotedDesignations" ng-class="{designation_selected : vm.giftSelected(designation) == true}">
+                                        <a ng-click="vm.addGift(designation)"><span>+</span></a>
+                                        <a ng-click="vm.removeGift(designation)"><span>-</span></a>
+
+                                        <span class="titleContent">{{designation.name}}</span>
+                                        </span>
+
+                                        <br />
+                                        <span class="giftContent">{{designation.description}}</span>
+                                        <br />
+                                    </li>
+                                </ul>
+                                <hr />
+                                <span class="line-separator"></span>
+                                <h2 class="titleHeaderContent" style="padding-top: 5px;">SEARCH GIFTS</h2>
+                                <input type="text" placeholder="Search ..." ng-model="vm.searchTerm" name="search" id="search" />
+                                <input type="button" value="Search" placeholder="Search" ng-click="vm.searchDesignations()" style="width: 62px;" />
+                                <ul>
+                                    <li ng-repeat="designation in vm.searchResults" ng-class="{designation_selected : vm.giftSelected(designation) == true}">
+
+                                        <a ng-click="vm.addGift(designation)"><span>+</span></a>
+                                        <a ng-click="vm.removeGift(designation)"><span>-</span></a>
+                                        <span class="titleContent">{{designation.name}}</span>
+                                        </span>
+
+                                        <br />
+                                        <span class="giftContent">{{designation.description}}</span>
+                                    </li>
+                                </ul>
+
+                                <br /><br />
+
+                                <div class="footerBtn" class="btnCoN">
+                                    <button type="button"><label for='step2' id="continue-step2"><span>Continue</span></label></button>
+                                </div>
+                                <div class="clear"></div>
+                            </fieldset>
+
+                            <fieldset id="part2" class="donationForm">
+                                <span class="line-separator"></span>
+                                <h2 class="titleHeaderContent">SELECTED GIFTS</h2>
+                                <div ng-repeat="gift in vm.donation.Gift.Designations" class="giftDesignations2 designation_selected">
+                                    <span ng-click="vm.removeGift($index)" class="titleContent">- {{gift.Name}}</span> &nbsp;&nbsp;&nbsp; <b>$</b><input ng-model-options="{'updateOn':'blur click change'}" class="money" name="gift_{{$index}}" id="gift_{{$index}}"
+                                        ng-model="gift.Amount" ng-min="vm.minimumGiftAmount" required ng-change="vm.updateGiftAmount();" type="number" />
+                                    <br />
+
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 25">25</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 50">50</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 100">100</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 250">250</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 500">500</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 1000">1,000</a></span>
+                                    <span class="btnOrder">$ <a ng-click="gift.Amount = 2000">2,000</a></span>
+
+                                    <br />
+
+                                    <span ng-messages="donationForm['gift_' + $index].$error" ng-if="donationForm['gift_' + $index].$touched">
+                            <span ng-message="required"></span>
+                                    <span ng-message="number">Not a valid number</span>
+                                    <span ng-message="min">Must be greater than {{vm.minimumGiftAmount}}</span>
+                                    </span>
+                                </div>
+
+                                <hr />
+                                <span class="secondMiscItems">
+                                    <a href="/">Add more gifts</a>.
+                                </span>
+                                <br />
+
+                                <span ng-show="vm.settings.allowRecurring === 'true'">
+                        <br /><br />
+                        <label for="recurring_gift" class="secondMiscItems">Recurring Gift?</label>
+                        <input type="checkbox" id="recurring_gift" name="recurring_gift" ng-model="vm.giftOptions.isRecurringGift" />
+                        <div ng-show="vm.giftOptions.isRecurringGift" class="secondMiscItemsDrop">
+                            <label for="recurrence_frequency">Charge {{vm.giftTotal}} to my credit card.</label>
+                            <select ng-model="vm.donation.Gift.Recurrence.Frequency" class="secondMiscItems" name="recurrence_frequency" id="recurrence_frequency" ng-required="vm.giftOptions.isRecurringGift">
+                                <option value="">Choose</option>
+                                <option value="1">Weekly</option>
+                                <option value="2">Monthly</option>
+                                <option value="3">Quarterly</option>
+                                <option value="4">Annually</option>
+                            </select>
+                            Start Date<input type="date" class="og-date" name="vm.donation.Gift.Recurrence.StartDate" ng-required="vm.giftOptions.isRecurringGift" />
+                            End Date<input type="date" class="og-date" name="vm.donation.Gift.Recurrence.EndDate" />
+                            *login to cancel this
+                        </div>
+                    </span>
+                                <hr />
+                                <br />
+                                <br />
+                                <span class="line-separator"></span>
+                                <span class="titleHeaderContent">GIFT DESIGNATION OPTIONS</span>
+                                <br />
+
+                                <br /><br />
+                                <label for="joint_gift" class="jointClass">
+                        Joint gift with spouse?<input type="checkbox" id="joint_gift" name="joint_gift" ng-model="vm.giftOptions.isJointGift" />
+                    </label>
+
+                                <div ng-show="vm.giftOptions.isJointGift" class="jointClass">
+                                    <input type="text" placeholder="First name" name="spouse_first" ng-model="vm.donation.Donor.Spouse.FirstName" ng-required="vm.giftOptions.isJointGift" />
+
+                                    <input type="text" placeholder="Last name" name="spouse_last" ng-model="vm.donation.Donor.Spouse.LastName" ng-required="vm.giftOptions.isJointGift" />
+                                </div>
+                                <span ng-show="vm.settings.allowTribute === 'true'">
+                        <br /><br />
+                        <label for="tribute_gift" class="jointClass">Tribute gift</label>
+                        <input type="checkbox" id="tribute_gift" name="tribute_gift" ng-model="vm.giftOptions.isTributeGift" />
+                        <div ng-show="vm.giftOptions.isTributeGift" class="jointClass">
+                            <ul>
+                                <li ng-class="{tribute_selected : vm.donation.Gift.Tribute.TributeDefinition.Type == tribute.name}" ng-click="vm.setTributeType(tribute.name)" ng-repeat="tribute in vm.tributes">{{tribute.name}}</li>
+                            </ul>
+                            <input type="text" placeholder="first name" name="tribute_first" ng-model="vm.donation.Gift.Tribute.TributeDefinition.FirstName" ng-required="vm.giftOptions.isTributeGift" />
+
+                            <input type="text" placeholder="Last name" name="tribute_last" ng-model="vm.donation.Gift.Tribute.TributeDefinition.LastName" ng-required="vm.giftOptions.isTributeGift" />
+
+                        </div>
+                    </span>
+
+                                <div class="footerBtn">
+
+                                    <button type="button"><label for='step3' id="continue-step3" class="btnCoN"><span>Continue</span></label></button>
+                                    <button type="button"><label for='step2' id="back-step1"><span class="btnCoN">Back</span></label>
+                                    </button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="part3" class="donationForm">
+                                PERSONAL INFORMATION
+                                <br /> First Name<br />
+                                <input ng-maxlength="100" name="donor_first" type="text" placeholder="First name" ng-model="vm.donation.Donor.FirstName" required />
+                                <br /> Last Name<br />
+                                <input ng-maxlength="100" name="donor_last" type="text" placeholder="Last name" ng-model="vm.donation.Donor.LastName" required />
+
+                                <br /><br /> Location
+                                <br />
+
+                                <input ng-maxlength="75" name="donor_street" type="text" placeholder="Street Address" ng-model="vm.donation.Donor.Address.StreetAddress" required />
+
+                                <input ng-maxlength="75" name="donor_city" type="text" placeholder="City" ng-model="vm.donation.Donor.Address.City" required />
+
+
+                                <select name="donor_country" style="width:48%;" placeholder="Select County" ng-model="vm.donation.Donor.Address.Country" ng-change="vm.setStates()" ng-options="c.Abbreviation as c.Description for c in vm.countries" ng-model-options="{debounce: 500}" required></select>
+
+                                <select name="donor_state" style="width:49%;" placeholder="Select State" ng-show="vm.states.length > 0" ng-model="vm.donation.Donor.Address.State" ng-options="s.Abbreviation as s.Description for s in vm.states" ng-required="vm.states.length > 0"></select>
+                                <br /> Zip Code <br />
+                                <input name="donor_postal" type="text" placeholder="Postal Code" ng-model="vm.donation.Donor.Address.PostalCode" required />
+                                <br /> Phone <br />
+                                <input ng-maxlength="20" name="donor_phone" type="text" placeholder="Phone Number" ng-model="vm.donation.Donor.Phone" required ng-pattern="vm.regex.phone" />
+                                <span ng-show="donationForm.donor_phone.$error.pattern && donationForm.donor_phone.$touched">Invalid phone number</span>
+                                <br /> Email
+                                <br />
+                                <br />
+                                <input ng-maxlength="100" name="donor_email" type="text" placeholder="Email Address" ng-model="vm.donation.Donor.EmailAddress" required ng-pattern="vm.regex.email" />
+                                <br />
+
+                                <span ng-show="vm.errorMessage !== ''">{{vm.errorMessage}}</span>
+                                <label for="anonymous_donation">
+                          Anonymous Donation?<input type="checkbox" id="anonymous_donation" name="anonymous_donation" ng-model="vm.donation.Gift.IsAnonymous" />
+                      </label>
+
+                                <hr />
+
+
+
+                                <div class="footerBtn">
+                                    <button type="button"><label for='step4' id="continue-step4" class="btnCoN"><span>Continue</span></label></button>
+                                </div>
+
+
+                            </fieldset>
+
+                            <fieldset id="part4">
+
+                                <h1 align="center"> THANK YOU MSG </h1>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <div ng-show="vm.transactionId !== ''" id="online-giving-confirmation">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function() {
+
+            if (typeof(angular) === 'undefined') {
+                var message = 'Advanced Donation Form configuration part is missing.  Add the configuration part to the top of this page.';
+                if (console) {
+                    console.log(message);
+                }
+                $('#og-missing-angular').text(message);
+                return;
+            }
+        })();
+    </script>
+</body>
+
+</html>

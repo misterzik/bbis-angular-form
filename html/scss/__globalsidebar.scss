@@ -1,0 +1,70 @@
+/* Sidebar - Manifesto */
+
+
+/* Mobile Rules */
+
+$break-small: 600px;
+$break-medium: 1466px;
+$break-large: 1024px;
+aside {
+    display: none;
+    &.siderGift {
+        padding: 12px;
+    }
+    @media screen and (max-width: $break-small) {
+        display: none;
+    }
+    @media screen and (max-width: $break-medium) {
+        display: block;
+        padding: 10px;
+        position: absolute;
+        right: 9.8%;
+        top: 16em;
+        float: right;
+        background: #EC1C24;
+        width: 200px;
+        min-height: 131px;
+        min-height: auto;
+    }
+    @media screen and (min-width: $break-large) {
+        display: block;
+        padding: 10px;
+        position: absolute;
+        right: 9.8%;
+        top: 16em;
+        float: right;
+        background: #EC1C24;
+        width: 200px;
+        min-height: 131px;
+        min-height: auto;
+    }
+}
+
+.sidebar {
+    display: none!important;
+    @media screen and (max-width: $break-small) {
+        display: none!important;
+        color: #fff;
+        float: right;
+        font-family: 'Circular-Bold';
+        font-style: oblique;
+        font-weight: 500;
+        width: 100%;
+    }
+    @media screen and (min-width: $break-large) {
+        display: block!important;
+        color: #fff;
+        float: right;
+        font-family: 'Circular-Bold';
+        font-style: oblique;
+        font-weight: 500;
+        width: 100%;
+    }
+}
+
+.sidebar hr {
+    border-top: 1px solid rgba(102, 51, 51, 0.42) !important;
+    text-align: center;
+    margin-left: 0;
+    opacity: 0.2;
+}
